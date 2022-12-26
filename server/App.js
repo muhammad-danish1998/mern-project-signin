@@ -1,11 +1,14 @@
 const express = require("express");
-const app = express();
+var cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+const app = express();
+app.use(cookieParser());
+
 dotenv.config({ path: "./config.env" });
 require("./db/conn");
-// const userData = require("./model/userSchema")
+
 app.use(express.json());
 // link router file
 app.use(require("./router/auth"));
