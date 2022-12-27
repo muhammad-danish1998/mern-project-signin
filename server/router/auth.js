@@ -101,5 +101,11 @@ router.post("/contact", authenticate, async (req, res) => {
     console.log(error);
   }
 });
+// -------------- Logout Page -----------------
+router.get("/logout", (req, res) => {
+  res.clearCookie('jwtoken',{path:"/"})
+  res.status(200).send("Logout Page");
+  console.log("User Logout");
+});
 
 module.exports = router;
